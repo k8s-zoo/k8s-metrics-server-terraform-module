@@ -12,6 +12,8 @@ Supported Kubernetes Dashboard Version: `v0.3.6`
 
 ```hcl-terraform
 
+# Connecting to AWS EKS
+
 data "aws_eks_cluster" "cluster" {
   name = var.cluster_id
 }
@@ -19,8 +21,6 @@ data "aws_eks_cluster" "cluster" {
 data "aws_eks_cluster_auth" "cluster" {
   name = var.cluster_id
 }
-
-# Connecting to AWS EKS
    
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
@@ -28,6 +28,8 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
 }
+
+# Installing metrics-server
 
 module "kubernetes_metrics_server" {
   source = "git@github.com/k8s-zoo/k8s-metrics-server-terraform-module.git//terraform"
