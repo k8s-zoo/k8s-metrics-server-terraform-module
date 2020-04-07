@@ -10,7 +10,7 @@ resource "kubernetes_cluster_role_binding" "auth_delegator" {
   subject {
     kind      = "ServiceAccount"
     name      = kubernetes_service_account.metrics-server-deployment.metadata.0.name
-    api_group = "kube-system"
+    namespace = var.namespace
   }
 }
 
@@ -26,6 +26,6 @@ resource "kubernetes_cluster_role_binding" "resource_reader" {
   subject {
     kind      = "ServiceAccount"
     name      = kubernetes_service_account.metrics-server-deployment.metadata.0.name
-    api_group = "kube-system"
+    namespace = var.namespace
   }
 }

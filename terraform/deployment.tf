@@ -12,7 +12,7 @@ resource "kubernetes_deployment" "metrics_server_deployment" {
 
     template {
       metadata {
-        name = "metrics-server"
+        name = var.metrics_server_deployment_name
         labels = var.labels
       }
 
