@@ -17,7 +17,7 @@ resource "kubernetes_deployment" "metrics_server_deployment" {
       }
 
       spec {
-        service_account_name = kubernetes_service_account.metrics-server-deployment.metadata.name
+        service_account_name = kubernetes_service_account.metrics-server-deployment.metadata.0.name
         volume {
           name = "tmp-dir"
           empty_dir {}

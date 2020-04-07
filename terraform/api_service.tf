@@ -4,8 +4,8 @@ resource "kubernetes_api_service" "metrics_apiservice" {
   }
   spec {
     service {
-      name = kubernetes_service.server_service.metadata.name
-      namespace = kubernetes_service.server_service.metadata.namespace
+      name = kubernetes_service.server_service.metadata.0.name
+      namespace = kubernetes_service.server_service.metadata.0.namespace
     }
     group = "metrics.k8s.io"
     version = "v1beta1"

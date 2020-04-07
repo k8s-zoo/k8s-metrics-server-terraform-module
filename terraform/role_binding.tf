@@ -10,7 +10,7 @@ resource "kubernetes_role_binding" "auth-reader" {
   }
   subject {
     kind      = "ServiceAccount"
-    name      = kubernetes_service_account.metrics-server-deployment.metadata.name
-    namespace = kubernetes_service_account.metrics-server-deployment.metadata.namespace
+    name      = kubernetes_service_account.metrics-server-deployment.metadata.0.name
+    namespace = kubernetes_service_account.metrics-server-deployment.metadata.0.namespace
   }
 }
