@@ -26,7 +26,7 @@ resource "kubernetes_deployment" "metrics_server_deployment" {
         container {
           name = "metrics-server"
           image = "${var.metrics_server_deployment_image}:${var.metrics_server_deployment_tag}"
-          imagePullPolicy = "Always"
+          image_pull_policy = "Always"
           volume_mount {
             mount_path = "/tmp"
             name = "tmp-dir"
