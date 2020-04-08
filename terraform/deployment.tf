@@ -18,6 +18,7 @@ resource "kubernetes_deployment" "metrics_server_deployment" {
 
       spec {
         service_account_name = kubernetes_service_account.metrics-server-deployment.metadata.0.name
+        automount_service_account_token = true
         volume {
           name = "tmp-dir"
           empty_dir {}
